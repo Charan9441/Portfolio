@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lakshmi Charan Sai Akula — CyberNeon+ Portfolio</title>
+  <meta name="description" content="Lakshmi Charan Sai Akula — Full-stack developer passionate about AI, web apps, and gamified learning experiences." />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1:#090511; --bg2:#1c1030;
+      --accent1:#00fff0; --accent2:#ff00c8;
+      --glass:rgba(255,255,255,0.03); --card:rgba(255,255,255,0.02);
+      --radius:14px; --mono:'Orbitron',system-ui;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body {
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      color:#eafcff;
+      background:radial-gradient(circle at top left,var(--bg1),var(--bg2));
+      overflow-x:hidden;
+      background-attachment:fixed;
+      padding:40px 20px;
+      line-height:1.6;
+    }
+
+    .mesh {
+      position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(600px circle at 10% 20%, rgba(0,255,240,0.08), transparent 10%),
+        radial-gradient(500px circle at 80% 80%, rgba(255,0,200,0.07), transparent 12%);
+      filter:blur(40px);mix-blend-mode:screen;opacity:0.95;
+    }
+
+    .wrap{position:relative;z-index:2;max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:30px}
+    .brand{display:flex;align-items:center;gap:12px;transition:transform .3s ease}
+    .brand:hover{transform:scale(1.02)}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:grid;place-items:center;color:#04050a;font-family:var(--mono);font-weight:700;font-size:20px}
+    .brand h1{margin:0;font-family:var(--mono);font-size:22px;letter-spacing:0.5px}
+    nav a{color:inherit;text-decoration:none;margin-left:10px;padding:8px 12px;border-radius:10px;font-weight:600;opacity:0.9;transition:0.3s}
+    nav a:hover{color:var(--accent1);text-shadow:0 0 8px var(--accent1)}
+
+    main{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:10px}
+    .card{border-radius:var(--radius);background:var(--card);padding:24px;border:1px solid rgba(255,255,255,0.05);backdrop-filter:blur(8px);box-shadow:0 0 30px rgba(0,0,0,0.5);transition:all 0.3s ease}
+    .card:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 0 40px rgba(255,255,255,0.05),0 0 12px rgba(0,255,240,0.08)}
+
+    .hero h2{font-family:var(--mono);font-size:34px;margin-bottom:10px}
+    .typing{color:var(--accent1);font-weight:700;margin-top:4px;font-size:18px;min-height:26px}
+    .controls{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.06);display:inline-flex;align-items:center;gap:10px;transition:all 0.3s ease}
+    .btn-primary{background:linear-gradient(90deg, rgba(0,255,240,0.08), rgba(255,0,200,0.08));box-shadow:0 4px 20px rgba(0,255,240,0.06)}
+    .btn:hover{transform:scale(1.05)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.08)}
+
+    .badges{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+    .badges img{height:32px;transition:all 0.3s ease}
+    .badges img:hover{transform:scale(1.1);filter:drop-shadow(0 0 6px var(--accent1))}
+
+    .section-title{font-family:var(--mono);text-align:center;font-size:20px;margin:24px 0 12px;color:var(--accent2);text-shadow:0 0 6px rgba(255,0,200,0.3)}
+
+    .about{margin-top:16px;color:rgba(234,252,255,0.92);text-align:justify}
+    aside .photo{height:220px;border-radius:10px;background:linear-gradient(135deg,rgba(0,255,240,0.1),rgba(255,0,200,0.1));display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:22px;text-shadow:0 0 6px var(--accent2)}
+    .meta{margin-top:12px}
+    .meta b{display:block}
+    .links{margin-top:12px;display:flex;gap:8px}
+    .icon{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);text-decoration:none;font-size:18px;transition:0.3s}
+    .icon:hover{transform:translateY(-3px) scale(1.1);box-shadow:0 0 14px rgba(0,255,240,0.2)}
+
+    .projects{display:grid;gap:12px;margin-top:12px}
+    .proj{padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);transition:all 0.3s ease}
+    .proj:hover{transform:translateY(-3px);box-shadow:0 0 16px rgba(0,255,240,0.15)}
+    .proj h4{margin:0 0 6px;color:var(--accent1)}
+
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+    .stats img{width:100%;border-radius:10px;transition:transform 0.3s}
+    .stats img:hover{transform:scale(1.03)}
+
+    footer{margin-top:28px;text-align:center;color:rgba(234,252,255,0.65);font-size:13px}
+
+    @media (max-width:980px){main{grid-template-columns:1fr;}.aside{order:2}.badges{justify-content:center}}
+  </style>
+</head>
+<body>
+  <div class="mesh"></div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">LC</div>
+        <div>
+          <h1>Lakshmi Charan Sai Akula</h1>
+          <div style="font-size:13px;color:rgba(234,252,255,0.8)">Full-Stack Developer • AI Explorer • Student</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero card">
+        <h2>Hey, I’m <span style="color:var(--accent2)">Lakshmi Charan Sai</span> 👋</h2>
+        <div class="typing" id="typing">Full-Stack Developer</div>
+
+        <div class="controls">
+          <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">📄 View Resume</a>
+          <a class="btn btn-ghost" href="mailto:charanakula9441@gmail.com">✉️ Email</a>
+          <a class="btn btn-ghost" href="https://github.com/Charan9441" target="_blank">🐙 GitHub</a>
+        </div>
+
+        <div id="skills" class="section-title">🚀 Tech Stack</div>
+        <div class="badges">
+          <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=white&color=00fff0">
+          <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white&color=ff00c8">
+          <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&color=00fff0">
+          <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB&color=ff00c8">
+          <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white&color=00fff0">
+          <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white&color=ff00c8">
+          <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white&color=00fff0">
+          <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white&color=ff00c8">
+          <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white&color=00fff0">
+        </div>
+
+        <div class="section-title">🧠 AI Tools I Use</div>
+        <div class="badges">
+          <img src="https://img.shields.io/badge/Claude.ai-5A5A5A?style=for-the-badge&logo=anthropic&logoColor=white&color=ff00c8">
+          <img src="https://img.shields.io/badge/Cursor_AI-121212?style=for-the-badge&logo=cursor&logoColor=white&color=00fff0">
+          <img src="https://img.shields.io/badge/Gamma_AI-343541?style=for-the-badge&logo=gamma&logoColor=white&color=ff00c8">
+          <img src="https://img.shields.io/badge/Perplexity-000000?style=for-the-badge&logo=perplexity&logoColor=white&color=00fff0">
+        </div>
+
+        <div class="about" id="about">
+          <p>I’m an engineering student and aspiring full-stack developer passionate about crafting interactive, AI-powered web experiences. I focus on building efficient backend systems and intuitive frontend designs.</p>
+          <p>My curiosity drives me to explore emerging AI platforms and experiment with gamified learning interfaces that make technology more engaging and creative.</p>
+        </div>
+
+        <div class="stats">
+          <img src="https://github-readme-stats.vercel.app/api?username=Charan9441&show_icons=true&theme=radical" alt="GitHub Stats">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Charan9441&layout=compact&theme=radical" alt="Top Languages">
+        </div>
+      </section>
+
+      <aside class="card aside">
+        <div class="photo">Profile — Charan</div>
+        <div class="meta">
+          <b>Email</b>
+          <div style="margin-top:6px"><a href="mailto:charanakula9441@gmail.com" class="icon">✉️</a></div>
+          <b style="margin-top:12px">Location</b>
+          <div>India</div>
+        </div>
+
+        <div class="links">
+          <a class="icon" href="https://github.com/Charan9441" target="_blank">🐙</a>
+          <a class="icon" href="https://www.linkedin.com/in/lakshmicharansai/" target="_blank">in</a>
+        </div>
+
+        <div style="margin-top:14px" class="card">
+          <h4 style="margin:0 0 8px">Projects</h4>
+          <div class="projects">
+            <div class="proj"><h4>SmartLearn</h4><p>Gamified learning platform using React, Node, Prisma & PostgreSQL.</p></div>
+            <div class="proj"><h4>AI Flashcards</h4><p>Auto-generates study cards from prompts using AI tools.</p></div>
+            <div class="proj"><h4>Portfolio Website</h4><p>This interactive neon-themed personal site hosted on Vercel.</p></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <section id="projects" class="card" style="margin-top:20px">
+      <h3 style="margin-top:0;color:var(--accent1)">Projects & Experience</h3>
+      <p style="color:rgba(234,252,255,0.9)">Include live demos or repo links here with short writeups — problem solved, tech stack used, and your key learning.</p>
+    </section>
+
+    <section id="contact" class="card" style="margin-top:18px">
+      <h3 style="margin-top:0;color:var(--accent2)">Contact</h3>
+      <p>Email: <a href="mailto:charanakula9441@gmail.com">charanakula9441@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/lakshmicharansai/" target="_blank">lakshmicharansai</a></p>
+    </section>
+
+    <footer>
+      Built with 💙 by <strong>Lakshmi Charan Sai Akula</strong> — CyberNeon+ • 2025
+    </footer>
+  </div>
+
+  <script>
+    const texts = ["Full-Stack Developer","AI Enthusiast","Creative Coder","Tech Explorer"];
+    let idx=0,pos=0,forward=true;
+    const el=document.getElementById('typing');
+    function tick(){
+      const txt=texts[idx];
+      if(forward){pos++;if(pos>txt.length){forward=false;setTimeout(tick,900);return;}}
+      else{pos--;if(pos<0){forward=true;idx=(idx+1)%texts.length;setTimeout(tick,300);return;}}
+      el.textContent=txt.slice(0,pos);
+      setTimeout(tick,80);
+    }
+    tick();
+  </script>
+</body>
+</html>
